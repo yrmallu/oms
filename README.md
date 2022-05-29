@@ -59,7 +59,11 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 
 ## API Endpoint
 
+### To get disbursed amount for a given week for a merchant or all
 GET http://localhost:3000/disbursements
+
+### To get disbursed amount for a given week along with orders for a merchant or all
+GET http://localhost:3000/disbursements?include=orders
 
 Payload
 ```
