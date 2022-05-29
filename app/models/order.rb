@@ -4,5 +4,5 @@ class Order < ApplicationRecord
 
   enum status: { pending: 0, completed: 1, disbursed: 2 }
 
-  scope :yet_to_disburse, -> { where(status: 'completed', disbursed_at: nil) }
+  scope :yet_to_disburse, -> { completed.where(disbursed_at: nil) }
 end

@@ -9,8 +9,10 @@ module OrderServices
     end
 
     def call
-      Order.where(status: 'disbursed', created_at: begining_of_the_week..ending_of_the_week)
-           .where(merchant_condition)
+      Merchant.includes(:orders)
+              .where('orders.status': 'disbursed')
+              .where('orders.disbursed_at': begining_of_the_week..ending_of_the_week)
+              .where(merchant_condition)
     end
 
     def begining_of_the_week
