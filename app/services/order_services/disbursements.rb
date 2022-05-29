@@ -11,7 +11,7 @@ module OrderServices
     def call
       Merchant.includes(:orders)
               .where('orders.status': 'disbursed')
-              .where('orders.disbursed_at': begining_of_the_week..ending_of_the_week)
+              .where("Date(orders.disbursed_at) BETWEEN ? AND ?", begining_of_the_week, ending_of_the_week)
               .where(merchant_condition)
     end
 

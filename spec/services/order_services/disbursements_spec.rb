@@ -19,7 +19,7 @@ RSpec.describe OrderServices::Disbursements do
       let!(:mechant_disbursed_orders) { create_list(:order, 5, :disbursed, merchant: merchant)}
       it do
         subject = described_class.new(week, year, merchant.id).call
-        expect(subject.count).to eq(5)
+        expect(subject.count).to eq(1)
       end
     end
   end
